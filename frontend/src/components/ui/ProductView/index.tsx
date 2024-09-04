@@ -10,6 +10,7 @@ type Props = {
   description: string
   price: number
   uuid?: string
+  id: string
 }
 
 export const ProductView = ({
@@ -21,11 +22,16 @@ export const ProductView = ({
   description,
   price,
   uuid,
+  id,
 }: Props) => {
   return (
     <>
       <div className='relative overflow-hidden rounded-lg group'>
-        <Link href='#' className='absolute inset-0 z-10' prefetch={false}>
+        <Link
+          href={`/home/${id}`}
+          className='absolute inset-0 z-10'
+          prefetch={false}
+        >
           <span className='sr-only'>{view}</span>
         </Link>
         <Image
