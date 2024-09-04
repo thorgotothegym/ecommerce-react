@@ -1,5 +1,4 @@
 'use client'
-import Link from 'next/link'
 import { ProductView } from '@/components/ui/ProductView'
 import { ProductsUUID } from '@/services/Products'
 
@@ -29,10 +28,8 @@ export default function Page() {
                     name={name}
                     price={price}
                     key={description}
+                    id={String(id)}
                   />
-                  <Link href={`/home/${id}`} key={description}>
-                    {name}
-                  </Link>
                 </>
               )
             })}
