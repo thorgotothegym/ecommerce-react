@@ -2,9 +2,10 @@ import type { Metadata } from 'next'
 import { Inter as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import "./globals.css";
-import { User } from "@/components/ui/User";
+import { ShoppingBag, Heart } from 'lucide-react';
 import { Footer } from "@/components/ui/Footer";
 import { Breadcrumb } from "@/components/ui/Breadcrumb/Breadcrumb";
+import { SimpleDialog } from '@/components/ui/Dialog/SimpleDialog';
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -35,15 +36,23 @@ export default function RootLayout({
     >
       free shipping
     </section>
+    
     <section aria-label='menu' className='w-full py-4 bg-muted'>
+      
       <div className='container flex flex-row-reverse px-4 md:px-6'>
-        <User email='john@example.com' fullName='John Doe' />
+
+        <div className='px-2'><Heart className='hover:cursor-pointer' /></div>
+        <div className='px-2'><SimpleDialog /></div>
+        <div className='px-2'><ShoppingBag className='hover:cursor-pointer' /></div>
+        
+        {/* <User email='john@example.com' fullName='John Doe' /> */}
       </div>
     </section>
     <section aria-label='breadcrumb' className="container flex flex-row px-4 md:px-6">
       <Breadcrumb />
       </section>{children}
     <Footer />
+    
       </body>
     </html>
   );
