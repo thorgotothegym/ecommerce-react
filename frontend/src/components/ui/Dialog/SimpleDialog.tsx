@@ -1,5 +1,5 @@
 'use client'
-import { FormEvent, useState } from 'react'
+import { FormEvent, useContext, useState } from 'react'
 import {
   Dialog,
   DialogContent,
@@ -14,6 +14,7 @@ import { User } from 'lucide-react'
 import { Label } from '../Label'
 import { Input } from '../Input'
 import { cn } from '@/lib/utils'
+import MyContext from '@/context/UserContext'
 
 type Props = {
   children?: React.ReactNode
@@ -27,9 +28,13 @@ type Form = {
 export const SimpleDialog: React.FC<Props> = ({ children }) => {
   const [open, setOpen] = useState<boolean>(false)
   const [form, setForm] = useState<Form>({ email: '', password: '' })
+  const context = useContext(MyContext)
+  const dummy = context
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+    console.log('form', form)
+    dummy?.setValue(form.email)
   }
   return (
     <>

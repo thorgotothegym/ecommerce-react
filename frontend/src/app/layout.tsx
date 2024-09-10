@@ -6,6 +6,7 @@ import { ShoppingBag, Heart } from 'lucide-react';
 import { Footer } from "@/components/ui/Footer";
 import { Breadcrumb } from "@/components/ui/Breadcrumb/Breadcrumb";
 import { SimpleDialog } from '@/components/ui/Dialog/SimpleDialog';
+import { MyContextProvider } from '@/context/UserContext';
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -30,6 +31,7 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
+        <MyContextProvider>
       <section
       aria-label='shipping'
       className='w-full container flex justify-center m-1'
@@ -52,7 +54,7 @@ export default function RootLayout({
       <Breadcrumb />
       </section>{children}
     <Footer />
-    
+    </MyContextProvider>
       </body>
     </html>
   );
