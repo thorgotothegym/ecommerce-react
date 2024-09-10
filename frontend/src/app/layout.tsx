@@ -8,6 +8,7 @@ import { Breadcrumb } from "@/components/ui/Breadcrumb/Breadcrumb";
 import { SimpleDialog } from '@/components/ui/Dialog/SimpleDialog';
 import { MyContextProvider } from '@/context/UserContext';
 import { CustomMenu } from '@/components/ui/NavigationMenu/CustomMenu';
+import { Toaster } from '@/components/ui/Toast/toaster';
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -32,6 +33,7 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
+        <Toaster />
         <MyContextProvider>
       <section
       aria-label='shipping'
@@ -55,6 +57,7 @@ export default function RootLayout({
       <Breadcrumb />
       <CustomMenu />
       </section>{children}
+
     <Footer />
     </MyContextProvider>
       </body>
