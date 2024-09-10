@@ -1243,3 +1243,13 @@ export const ProductsUUID = [
     uuid: '6f727714-a6ff-427e-b270-7f7c8b866750',
   },
 ]
+
+export const filterMenu = (): string[] => {
+  const uniqueItemsMap = new Map()
+  ProductsUUID.forEach(item => {
+    if (!uniqueItemsMap.has(item.category)) {
+      uniqueItemsMap.set(item.category, item.category)
+    }
+  })
+  return Array.from(uniqueItemsMap.values())
+}
