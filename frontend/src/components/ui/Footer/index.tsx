@@ -1,8 +1,21 @@
+'use client'
+import { FormEvent, useState } from 'react'
 import Link from 'next/link'
 import { Button } from '../Button'
 import { Input } from '../Input'
+import { useToast } from '@/hooks/use-toast'
 
 export const Footer = () => {
+  const [email, setEmail] = useState<string>()
+  const { toast } = useToast()
+  const onSumbit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    toast({
+      title: `Subscribe to the newsletter!`,
+      description: `Now you will be up to date with all our offers`,
+    })
+  }
+
   return (
     <>
       <section className='w-full py-12 md:py-24 lg:py-32 border-t'>
@@ -17,10 +30,12 @@ export const Footer = () => {
             </p>
           </div>
           <div className='mx-auto w-full max-w-sm space-y-2'>
-            <form className='flex gap-2'>
+            <form className='flex gap-2' onSubmit={onSumbit}>
               <Input
                 type='email'
+                value={email}
                 placeholder='Enter your email'
+                onChange={event => setEmail(event.target.value)}
                 className='max-w-lg flex-1'
               />
               <Button type='submit'>Sign Up</Button>
