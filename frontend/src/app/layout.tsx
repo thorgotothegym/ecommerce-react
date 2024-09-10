@@ -7,6 +7,7 @@ import { Footer } from "@/components/ui/Footer";
 import { Breadcrumb } from "@/components/ui/Breadcrumb/Breadcrumb";
 import { SimpleDialog } from '@/components/ui/Dialog/SimpleDialog';
 import { MyContextProvider } from '@/context/UserContext';
+import { CustomMenu } from '@/components/ui/NavigationMenu/CustomMenu';
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -52,6 +53,7 @@ export default function RootLayout({
     </section>
     <section aria-label='breadcrumb' className="container flex flex-row px-4 md:px-6">
       <Breadcrumb />
+      <CustomMenu />
       </section>{children}
     <Footer />
     </MyContextProvider>
