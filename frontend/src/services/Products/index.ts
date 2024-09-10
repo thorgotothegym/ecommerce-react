@@ -601,6 +601,22 @@ export const Products = [
   },
 ]
 
+export type Product = {
+  id: number
+  name: string
+  description: string
+  longDescription: string
+  price: number
+  oldPrice: number
+  discount: number
+  category: string
+  image: string
+  rating: number
+  stock: number
+  SKU: string
+  uuid: string
+}
+
 export const ProductsUUID = [
   {
     id: 1,
@@ -1252,4 +1268,10 @@ export const filterMenu = (): string[] => {
     }
   })
   return Array.from(uniqueItemsMap.values())
+}
+
+export const getById = (id: number) => {
+  ProductsUUID.filter(product => {
+    return product.id == id
+  })
 }

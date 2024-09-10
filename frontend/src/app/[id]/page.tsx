@@ -1,3 +1,4 @@
+'use client'
 import { Button } from '@/components/ui/Button'
 import { Label } from '@/components/ui/Label'
 import {
@@ -7,15 +8,18 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/Select'
+import { getById } from '@/services/Products'
 import { HeartIcon, StarIcon, TruckIcon } from 'lucide-react'
 
 type Params = {
   params: {
-    id: string
+    id: number
   }
 }
 
 export default function Page({ params: { id } }: Params) {
+  const pepe = getById(id)
+  console.log('pepe', pepe)
   return (
     <section className='w-full py-12 md:py-24 lg:py-32 bg-muted'>
       <h1>{id}</h1>
