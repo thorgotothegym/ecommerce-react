@@ -13,6 +13,7 @@ export const Footer = () => {
     toast({
       title: `Subscribe to the newsletter!`,
       description: `Now you will be up to date with all our offers`,
+      duration: 2000,
     })
   }
 
