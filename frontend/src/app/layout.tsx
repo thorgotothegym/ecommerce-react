@@ -35,12 +35,6 @@ export default function RootLayout({
       >
         <Toaster />
         <MyContextProvider>
-      <section
-      aria-label='shipping'
-      className='w-full container flex justify-center m-1'
-    >
-      free shipping
-    </section>
     
     <section aria-label='menu' className='w-full py-4 bg-muted'>
       
