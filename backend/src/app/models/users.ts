@@ -10,10 +10,14 @@ const config = {
 
 const connection = await mysql.createConnection(config);
 
+type GetAllUsers = {
+  limit: number;
+};
+
 export class UserModel {
-  static async getAllUsers(limit: number) {
+  static async getAllUsers({ limit = 20 }: GetAllUsers) {
     const [movies] = await connection.query(
-      `SELECT user_handle, email_address, first_name FROM users limit ? order by email_address`,
+      `SELECT user_handle, email_address, first_name FROM users ORDER BY email_address DESC LIMIT ?`,
       [limit]
     );
     return movies;
