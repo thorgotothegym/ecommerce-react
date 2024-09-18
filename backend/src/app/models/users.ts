@@ -11,11 +11,11 @@ const config = {
 const connection = await mysql.createConnection(config);
 
 export class UserModel {
-  static async getAllUsers() {
+  static async getAllUsers(limit: number) {
     const [movies] = await connection.query(
-      "SELECT user_handle, email_address, first_name FROM users"
+      `SELECT user_handle, email_address, first_name FROM users limit ? order by email_address`,
+      [limit]
     );
-
     return movies;
   }
 }
