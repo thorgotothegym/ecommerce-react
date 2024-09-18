@@ -16,10 +16,10 @@ type GetAllUsers = {
 
 export class UserModel {
   static async getAllUsers({ limit = 20 }: GetAllUsers) {
-    const [movies] = await connection.query(
+    const [users] = await connection.query(
       `SELECT user_handle, email_address, first_name FROM users ORDER BY email_address DESC LIMIT ?`,
       [limit]
     );
-    return movies;
+    return users;
   }
 }
