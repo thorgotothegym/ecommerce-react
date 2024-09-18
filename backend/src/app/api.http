@@ -1,0 +1,2 @@
+### list all the users
+GET http://localhost:3003/user?limit=10
